@@ -1,121 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>VENOM</title>
+<meta charset="UTF-8">
+<title>VENOM</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
-    <style>
-        /* Corps de la page */
-        body {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            overflow: hidden;
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        background: #000;
+    }
 
-            /* Fond noir/blanc style liquide Venom */
-            background: #000;
-            background: radial-gradient(circle at 50% 50%, #fff 0%, #000 100%);
-            animation: liquid 20s infinite linear;
-        }
+    /* Conteneur de l'animation Venom liquide */
+    .venom-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        z-index: -1;
+        overflow: hidden;
+    }
 
-        @keyframes liquid {
-            0% { background-position: 0 0; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0 0; }
-        }
+    .blob {
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        top: -100%;
+        left: -100%;
+        background: radial-gradient(circle at 20% 30%, white, black 50%);
+        animation: move 30s linear infinite;
+        opacity: 0.6;
+        mix-blend-mode: difference;
+        border-radius: 40%;
+    }
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 80px;
-            margin-top: 40px;
-            color: white;
-            text-shadow: 0 0 20px black;
-        }
+    .blob:nth-child(2) {
+        animation-duration: 40s;
+        background: radial-gradient(circle at 70% 80%, white, black 50%);
+    }
 
-        a {
-            font-size: 22px;
-            text-decoration: none;
-            font-weight: bold;
-            text-shadow: 0 0 5px black;
-        }
+    .blob:nth-child(3) {
+        animation-duration: 50s;
+        background: radial-gradient(circle at 50% 50%, white, black 50%);
+    }
 
-        a.discord-link { color: #fff; }
-        a.discord-link:hover { color: #000; text-decoration: underline; }
+    @keyframes move {
+        0% { transform: translate(0,0) rotate(0deg); }
+        50% { transform: translate(50%,50%) rotate(180deg); }
+        100% { transform: translate(0,0) rotate(360deg); }
+    }
 
-        .description {
-            margin-top: 40px;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 1.6;
-            text-shadow: 0 0 10px black;
-            color: white;
-        }
+    h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 80px;
+        margin-top: 40px;
+        color: white;
+        text-shadow: 0 0 15px black;
+        z-index: 1;
+        position: relative;
+    }
 
-        .btn {
-            margin-top: 60px;
-            padding: 15px 40px;
-            font-size: 20px;
-            border: none;
-            background: white;
-            color: black;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: 0.3s;
-            font-weight: bold;
-        }
+    a.discord-link {
+        font-size: 22px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        text-shadow: 0 0 5px black;
+        position: relative;
+        z-index: 1;
+    }
 
-        .btn:hover {
-            background: black;
-            color: white;
-        }
+    a.discord-link:hover {
+        color: black;
+    }
 
-        /* Animation de “liquide” sur le texte (optionnel) */
-        h1, .description, a, .btn {
-            animation: pulse 3s infinite alternate;
-        }
+    .description {
+        margin-top: 40px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.6;
+        color: white;
+        text-shadow: 0 0 10px black;
+        position: relative;
+        z-index: 1;
+    }
 
-        @keyframes pulse {
-            0% { opacity: 0.8; }
-            100% { opacity: 1; }
-        }
-    </style>
+    .btn {
+        margin-top: 60px;
+        padding: 15px 40px;
+        font-size: 20px;
+        border: none;
+        background: white;
+        color: black;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: black;
+        color: white;
+    }
+</style>
 </head>
 <body>
 
-    <!-- Titre -->
-    <h1>VENOM</h1>
+<!-- Fond liquide Venom -->
+<div class="venom-bg">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
 
-    <!-- Lien Discord -->
-    <p>
-        Rejoin : 
-        <a href="https://discord.gg/BGUjzYhh84" target="_blank" class="discord-link">
-            https://discord.gg/BGUjzYhh84
-        </a>
-    </p>
+<h1>VENOM</h1>
 
-    <!-- Description -->
-    <div class="description">
-        <p>WE ARE THINKERS WHO CREATE FOR THE COMMUNITY</p>
-        <p>WE ARE CODERS</p>
-        <p>WE ARE HACKERS</p>
-    </div>
+<p>
+Rejoin : 
+<a href="https://discord.gg/BGUjzYhh84" target="_blank" class="discord-link">
+https://discord.gg/BGUjzYhh84
+</a>
+</p>
 
-    <!-- Bouton YouTube -->
-    <button class="btn" onclick="window.open('https://www.youtube.com/channel/UC1Qjyg-xcQQfSc58KF0VaTA')">
-        CHANNEL
-    </button>
+<div class="description">
+    <p>WE ARE THINKERS WHO CREATE FOR THE COMMUNITY</p>
+    <p>WE ARE CODERS</p>
+    <p>WE ARE HACKERS</p>
+</div>
 
-    <!-- Musique Venom (Eminem) -->
-    <iframe width="0" height="0"
-        src="https://www.youtube.com/embed/8CdcCD5V-d8?start=60&autoplay=1&loop=1&playlist=8CdcCD5V-d8"
-        frameborder="0"
-        allow="autoplay">
-    </iframe>
+<button class="btn" onclick="window.open('https://www.youtube.com/channel/UC1Qjyg-xcQQfSc58KF0VaTA')">
+CHANNEL
+</button>
+
+<!-- Musique Venom -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/8CdcCD5V-d8?start=60&autoplay=1&loop=1&playlist=8CdcCD5V-d8"
+frameborder="0" allow="autoplay"></iframe>
 
 </body>
 </html>
