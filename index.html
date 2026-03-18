@@ -8,16 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
     <style>
+        /* Corps de la page */
         body {
             margin: 0;
             padding: 0;
             text-align: center;
-            color: white;
             font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
 
-            /* Fond Venom */
-            background: url('https://wallpapercave.com/wp/wp5128415.jpg') no-repeat center center fixed;
-            background-size: cover;
+            /* Fond noir/blanc style liquide Venom */
+            background: #000;
+            background: radial-gradient(circle at 50% 50%, #fff 0%, #000 100%);
+            animation: liquid 20s infinite linear;
+        }
+
+        @keyframes liquid {
+            0% { background-position: 0 0; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0 0; }
         }
 
         h1 {
@@ -29,21 +38,22 @@
         }
 
         a {
-            color: #00ffff;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 5px black;
         }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        a.discord-link { color: #fff; }
+        a.discord-link:hover { color: #000; text-decoration: underline; }
 
         .description {
             margin-top: 40px;
             font-weight: bold;
-            font-size: 22px;
-            color: white;
+            font-size: 24px;
+            line-height: 1.6;
             text-shadow: 0 0 10px black;
+            color: white;
         }
 
         .btn {
@@ -51,16 +61,27 @@
             padding: 15px 40px;
             font-size: 20px;
             border: none;
-            background: black;
-            color: white;
+            background: white;
+            color: black;
             cursor: pointer;
             border-radius: 10px;
             transition: 0.3s;
+            font-weight: bold;
         }
 
         .btn:hover {
-            background: white;
-            color: black;
+            background: black;
+            color: white;
+        }
+
+        /* Animation de “liquide” sur le texte (optionnel) */
+        h1, .description, a, .btn {
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -71,8 +92,8 @@
 
     <!-- Lien Discord -->
     <p>
-        Rejoin :
-        <a href="https://discord.gg/BGUjzYhh84" target="_blank">
+        Rejoin : 
+        <a href="https://discord.gg/BGUjzYhh84" target="_blank" class="discord-link">
             https://discord.gg/BGUjzYhh84
         </a>
     </p>
@@ -85,7 +106,6 @@
     </div>
 
     <!-- Bouton YouTube -->
-    <br>
     <button class="btn" onclick="window.open('https://www.youtube.com/channel/UC1Qjyg-xcQQfSc58KF0VaTA')">
         CHANNEL
     </button>
