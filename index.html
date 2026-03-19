@@ -5,7 +5,6 @@
 <title>VENOM</title>
 
 <style>
-/* GLOBAL */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,7 +13,6 @@ body {
     overflow-x: hidden;
 }
 
-/* BACKGROUND GALAXY */
 body::before {
     content: "";
     position: fixed;
@@ -23,7 +21,7 @@ body::before {
     background: url("https://www.transparenttextures.com/patterns/stardust.png");
     opacity: 0.3;
     animation: moveStars 60s linear infinite;
-    pointer-events: none; /* <-- Fix pour les clics */
+    pointer-events: none;
 }
 
 @keyframes moveStars {
@@ -31,38 +29,17 @@ body::before {
     to { transform: translate(-500px,-500px); }
 }
 
-/* NAVBAR */
-.navbar {
-    text-align: center;
-    padding: 20px;
-}
+.navbar { text-align: center; padding: 20px; }
+.navbar h1 { margin: 0; font-size: 40px; }
 
-.navbar h1 {
-    margin: 0;
-    font-size: 40px;
-}
-
-.nav-links {
-    margin-top: 10px;
-}
-
+.nav-links { margin-top: 10px; }
 .nav-links a {
     margin: 0 15px;
-    text-decoration: none;
     color: white;
-    font-size: 14px;
     cursor: pointer;
 }
 
-.nav-links a:hover {
-    color: gray;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    margin-top: 80px;
-}
+.hero { text-align: center; margin-top: 80px; }
 
 .logo-box {
     display: inline-flex;
@@ -78,9 +55,7 @@ body::before {
     border-radius: 10px;
 }
 
-.hero h2 {
-    font-size: 50px;
-}
+.hero h2 { font-size: 50px; }
 
 .gradient-text {
     background: linear-gradient(90deg, white, gray);
@@ -89,21 +64,14 @@ body::before {
     font-size: 30px;
 }
 
-.hero h3 {
-    font-size: 25px;
-}
+.hero h3 { font-size: 25px; }
 
-/* SECTION */
 .section-title {
     text-align: center;
     margin: 120px 0 40px;
     font-size: 40px;
-    background: linear-gradient(90deg, white, gray);
-    -webkit-background-clip: text;
-    color: transparent;
 }
 
-/* CARDS */
 .container {
     display: flex;
     justify-content: center;
@@ -117,12 +85,6 @@ body::before {
     border-radius: 20px;
     padding: 20px;
     border: 1px solid white;
-}
-
-.card h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .icon {
@@ -140,11 +102,6 @@ body::before {
     margin: 15px 0;
 }
 
-.bold {
-    font-weight: bold;
-    margin: 10px 0;
-}
-
 .features div {
     background: rgba(255,255,255,0.1);
     padding: 8px;
@@ -152,12 +109,11 @@ body::before {
     margin: 5px 0;
 }
 
-/* BUTTON */
 .btn {
     margin-top: 15px;
     padding: 10px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 10px; /* 🔥 coins arrondis */
     border: 1px solid white;
     cursor: pointer;
 }
@@ -165,205 +121,126 @@ body::before {
 .btn:hover {
     background: white;
     color: black;
+    transition: 0.2s;
 }
 
-/* PAGES */
-.page { display: none; }
-.active { display: block; }
+.page { display:none; }
+.active { display:block; }
 
-/* STATUS PAGE */
-.status-box {
-    margin: 100px auto;
-    width: 400px;
-    border: 1px solid white;
-    padding: 20px;
-    text-align: center;
+.status-box, .download-box {
+    margin:100px auto;
+    width:400px;
+    border:1px solid white;
+    padding:20px;
+    text-align:center;
 }
 
-.bar {
-    width: 100%;
-    height: 20px;
-    background: #222;
-    margin-top: 10px;
-}
+.bar { width:100%; height:20px; background:#222; }
+.bar-fill { width:100%; height:100%; background:lime; }
 
-.bar-fill {
-    width: 100%;
-    height: 100%;
-    background: lime;
-}
-
-/* DOWNLOAD PAGE */
-.download-box {
-    margin: 100px auto;
-    width: 400px;
-    border: 1px solid white;
-    padding: 20px;
-    text-align: center;
-}
-
-/* SCRIPT PAGE */
 .script {
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
+    border:1px solid white;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
 }
 
 .copy {
-    margin-top: 5px;
-    cursor: pointer;
-    border: 1px solid white;
-    padding: 5px;
+    margin-top:5px;
+    cursor:pointer;
+    border:1px solid white;
+    padding:5px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
-    <h1>VENOM</h1>
-    <div class="nav-links">
-        <a onclick="showPage('home')">Home</a>
-        <a onclick="showPage('status')">Status</a>
-        <a onclick="window.open('https://discord.gg/BGUjzYhh84')">Discord 🟣</a>
-    </div>
+<h1>VENOM</h1>
+<div class="nav-links">
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('status')">Status</a>
+<a onclick="window.open('https://discord.gg/BGUjzYhh84')">Discord 🟣</a>
+</div>
 </div>
 
-<!-- BACK BUTTON -->
 <button class="btn" style="position:fixed;top:10px;left:10px;background:transparent;" onclick="showPage('home')">BACK</button>
 
-<!-- HOME PAGE -->
 <div id="home" class="page active">
 
 <div class="hero">
-    <div class="logo-box">
-        <div class="shield"></div>
-        <h2>VENOM!!</h2>
-        <div class="shield"></div>
-    </div>
+<div class="logo-box">
+<div class="shield"></div>
+<h2>VENOM!!</h2>
+<div class="shield"></div>
+</div>
 
-    <p class="gradient-text">Dominate The Field</p>
-    <h3>With Venom!</h3>
+<p class="gradient-text">Dominate The Field</p>
+<h3>With Venom!</h3>
 </div>
 
 <h2 class="section-title">-Our Products-</h2>
 
 <div class="container">
 
-    <!-- EXECUTOR -->
-    <div class="card">
-        <h3><div class="icon"></div> Executor Venom</h3>
-        <div class="image"></div>
-        <div class="bold">Key-less</div>
-
-        <div class="features">
-            <div>Don't need key</div>
-            <div>Executor lua</div>
-            <div>Free</div>
-            <div>Easy to install</div>
-            <div>Venom.exe</div>
-            <div>+Many more</div>
-        </div>
-
-        <div class="btn" onclick="showPage('executor')">💉 EXPLORE EXECUTOR</div>
-    </div>
-
-    <!-- DA HOOD -->
-    <div class="card">
-        <h3><div class="icon"></div> Da Hood</h3>
-        <div class="image"></div>
-        <div class="bold">Key-less</div>
-
-        <div class="features">
-            <div>Auto-kill</div>
-            <div>Orbit</div>
-            <div>Troll</div>
-            <div>Fly Superman</div>
-            <div>Ammo Sound</div>
-            <div>Auto buy</div>
-            <div>+So much more</div>
-        </div>
-
-        <div class="btn" onclick="showPage('da')">💉 EXPLORE SCRIPT</div>
-    </div>
-
-    <!-- BLADE BALL -->
-    <div class="card">
-        <h3><div class="icon"></div> Blade Ball</h3>
-        <div class="image"></div>
-        <div class="bold">Key-less</div>
-
-        <div class="features">
-            <div>Auto-Parry</div>
-            <div>Fly</div>
-            <div>Speed</div>
-            <div>Noclip</div>
-            <div>Free skins</div>
-            <div>Target mod</div>
-        </div>
-
-        <div class="btn" onclick="showPage('blade')">💉 EXPLORE SCRIPT</div>
-    </div>
-
+<div class="card">
+<h3><div class="icon"></div> Executor Venom</h3>
+<div class="image"></div>
+<div class="bold">Key-less</div>
+<div class="features">
+<div>Don't need key</div>
+<div>Executor lua</div>
+<div>Free</div>
+<div>Easy to install</div>
+<div>Venom.exe</div>
+<div>+Many more</div>
 </div>
+<div class="btn" onclick="showPage('executor')">💉 EXPLORE EXECUTOR</div>
 </div>
 
-<!-- STATUS PAGE -->
-<div id="status" class="page">
-    <div class="status-box">
-        <h2>VENOM EXECUTOR !</h2>
-        <p>100% SAFE + VERIFIED !</p>
-        <div class="bar"><div class="bar-fill"></div></div>
-    </div>
+<div class="card">
+<h3><div class="icon"></div> Da Hood</h3>
+<div class="image"></div>
+<div class="bold">Key-less</div>
+<div class="features">
+<div>Auto-kill</div>
+<div>Orbit</div>
+<div>Troll</div>
+<div>Fly Superman</div>
+<div>Ammo Sound</div>
+<div>Auto buy</div>
+<div>+So much more</div>
+</div>
+<div class="btn" onclick="showPage('da')">💉 EXPLORE SCRIPT</div>
 </div>
 
-<!-- EXECUTOR PAGE -->
-<div id="executor" class="page">
-    <div class="download-box">
-        <h2>Key-Less</h2>
-        <div class="btn" onclick="window.open('https://cdn.discordapp.com/attachments/1483188494233895086/1483941454433747055/venom.zip')">DOWNLOAD</div>
-    </div>
+<div class="card">
+<h3><div class="icon"></div> Blade Ball</h3>
+<div class="image"></div>
+<div class="bold">Key-less</div>
+<div class="features">
+<div>Auto-Parry</div>
+<div>Fly</div>
+<div>Speed</div>
+<div>Noclip</div>
+<div>Free skins</div>
+<div>Target mod</div>
+</div>
+<div class="btn" onclick="showPage('blade')">💉 EXPLORE SCRIPT</div>
 </div>
 
-<!-- DA HOOD PAGE -->
-<div id="da" class="page">
-    <div class="script">
-        <b>XK5NG SCRIPT</b>
-        <div class="copy" onclick="copyText(`loadstring(game:HttpGet('https://xk5ng.github.io/XK5NG'))()`)">COPY</div>
-    </div>
-    <div class="script">
-        <b>AUTO FARM MONEY</b>
-        <div class="copy" onclick="copyText(`loadstring(game:HttpGet('https://raw.githubusercontent.com/yuvic123/Skidov1.2-stand/refs/heads/main/vault%20farm'))()`)">COPY</div>
-    </div>
-    <div class="script">
-        <b>HVH SCRIPT</b>
-        <div class="copy" onclick="copyText(`loadstring(game:HttpGet('https://raw.githubusercontent.com/yuvic123/SKIDO-V3/refs/heads/main/Skido-3.4'))()`)">COPY</div>
-    </div>
 </div>
-
-<!-- BLADE BALL PAGE -->
-<div id="blade" class="page">
-    <div class="script">
-        <b>ARGON HUB X</b>
-        <div class="copy" onclick="copyText(`loadstring(game:HttpGet('https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/bladeball.lua'))()`)">COPY</div>
-    </div>
-    <div class="script">
-        <b>SAVITAR</b>
-        <p style="font-size:12px;">Press T to open<br>Press E to auto click</p>
-    </div>
 </div>
 
 <script>
 function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
-
 function copyText(text){
-    navigator.clipboard.writeText(text);
-    alert("Copied!");
+navigator.clipboard.writeText(text);
+alert("Copied!");
 }
 </script>
 
